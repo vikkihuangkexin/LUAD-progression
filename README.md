@@ -5,4 +5,5 @@ Lung adenocarcinoma (LUAD) is a deadly tumor that remains approximately 15% surv
 
 
 ![Figure r21](https://user-images.githubusercontent.com/112677142/228104261-39291975-ab7f-4311-a833-3c06f84a372d.png)
- A cartoon illustrating the reversed graph embedding method. Each point xi in the left panel refers a sample in the input space. yi refers this sample in the latent space. Each yi can map to the point fξ (yi ) by maintaining the graph structure through the reversed graph embedding. ε refers the connections between the points. By using this method, we can infer the underlying structure of high dimensional data.
+ 
+A cartoon illustrating the reversed graph embedding method. Each point xi in the left panel refers a sample in the input space. yi refers this sample in the latent space. Each yi can map to the point fξ (yi ) by maintaining the graph structure through the reversed graph embedding. ε refers the connections between the points. By using this method, we can infer the underlying structure of high dimensional data.
