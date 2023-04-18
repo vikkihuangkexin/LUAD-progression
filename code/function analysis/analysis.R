@@ -1,20 +1,11 @@
-<<<<<<< HEAD
 ## R version for analysis is 4.0.1 ###
-=======
-## 使用R的版本为4.0.1,建议使用相同版本，以免出现包不兼容等问题 ###
-## 如提示缺少某某函数，请先安装对应的包 ##########################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 
-############################ 分期验证 ############################
+############################ stage validation ############################
 library(Hmisc)
 library(ggpubr)
 library(ggbeeswarm)
 
-<<<<<<< HEAD
 ### validation set ####
-=======
-### 训练集 ####
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 m <-read.csv("E:\\LUAD_model\\anova.csv",head=T,sep=',')
 m <-read.csv("E:\\LUAD_model\\anova1.csv",head=T,sep=',')
 m <-read.csv("E:\\LUAD_model\\anova2.csv",head=T,sep=',')
@@ -22,11 +13,7 @@ m <-read.csv("E:\\LUAD_model\\anova3.csv",head=T,sep=',')
 ggplot(m, aes(x=stage, y=score),color=stage) +
   geom_quasirandom(aes(colour=factor(stage)))+stat_summary(fun.data="mean_sdl", fun.args = list(mult=1), geom="crossbar", width=0.5)+stat_compare_means(method = "anova")
 
-<<<<<<< HEAD
-### validation set1 ###
-=======
-### 验证集1 ###
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
+### validation set1 ####
 m <-read.csv("E:\\LUAD_model\\otherdata\\GSE31210\\anova.csv",head=T,sep=',')
 m <-read.csv("E:\\LUAD_model\\otherdata\\GSE31210\\anova1.csv",head=T,sep=',')
 m <-read.csv("E:\\LUAD_model\\otherdata\\GSE31210\\anova2.csv",head=T,sep=',')
@@ -34,11 +21,7 @@ m <-read.csv("E:\\LUAD_model\\otherdata\\GSE31210\\anova3.csv",head=T,sep=',')
 ggplot(m, aes(x=stage, y=score),color=stage) +
   geom_quasirandom(aes(colour=factor(stage)))+stat_summary(fun.data="mean_sdl", fun.args = list(mult=1), geom="crossbar", width=0.5)+stat_compare_means(method = "anova")
 
-<<<<<<< HEAD
-### validation set2 ###
-=======
-### 验证集2 ###
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
+### validation set2 ####
 m <-read.csv("E:\\LUAD_model\\otherdata\\validation\\anova.csv",head=T,sep=',')
 m <-read.csv("E:\\LUAD_model\\otherdata\\validation\\anova1.csv",head=T,sep=',')
 m <-read.csv("E:\\LUAD_model\\otherdata\\validation\\anova2.csv",head=T,sep=',')
@@ -47,11 +30,7 @@ m$stage <- factor(m$stage,levels=c("WELL","Moderate","POOR"))
 ggplot(m, aes(x=stage, y=score),color=stage) +
   geom_quasirandom(aes(colour=factor(stage)))+stat_summary(fun.data="mean_sdl", fun.args = list(mult=1), geom="crossbar", width=0.5)+stat_compare_means(method = "anova")
 
-<<<<<<< HEAD
 ############################# survival ###################################
-=======
-############################# 生存分析 ###################################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 library(survival)
 library(survminer)
 survial <- read.csv("E:\\LUAD_model\\survialdata.csv",head=T,sep=',',stringsAsFactors = FALSE) #TCGA-LUAD
@@ -61,11 +40,7 @@ sfit <- survfit(Surv(time, status)~cluster, data=survial)
 ggsurvplot(sfit, risk.table=TRUE, conf.int=FALSE, pval=TRUE, xlab="Time", ggtheme = theme_light(),ncensor.plot= TRUE,palette = c("#FF0000","#00FF00","#00002C","#FF1AB9","#FFD300","#005800","#8484FF","#9E4F46","#00FFC1")) #conf.int为TRUE则绘制置信区间，risk.table绘制风险表，
 
 
-<<<<<<< HEAD
 ########################## enrichR ########################################
-=======
-########################## enrichR富集分析########################################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 library(enrichR)
 symbol <- read.csv("E:\\LUAD_model\\symbol_ID2.csv",head=F,sep=',')
 
@@ -111,7 +86,7 @@ data353 <- data[match(fea[,1],symbol_ID1[,1]),]
 data353 <- na.omit(data353)
 data353 <- data353[,-c(6,24,87,143,170,183,212,262,413,485,516,529)]
 data353 <- data353[,sample_order]
-data353 <- log2(data353) #使用以2为底log函数
+data353 <- log2(data353) #log2
 data353[data353==-Inf] <- 0
 fea <- as.matrix(fea)
 dimnames(data353) <- list(fea,colname)
@@ -121,11 +96,7 @@ inference <- read.table("E:\\LUAD_model\\GRN\\GRNVBEM\\GRNVBEM-master\\GRN_input
 inference <- inference[which(inference[,4]>0.3 | inference[,4] < -0.3),]
 #write.table(inference, "E:\\LUAD_model\\GRN\\GRNVBEM\\GRNVBEM-master\\GRN_input_data_new2__AR1MA1_GRN_inference(1).txt")
 
-<<<<<<< HEAD
 ############################# BUB1B expression with the change of pseudo time #########################
-=======
-############################# BUB1B表达随伪时间值变化 #########################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 library(Hmisc)
 library(ggpubr)
 library(ggbeeswarm)
@@ -166,11 +137,7 @@ survival[,1] <- survival[,1]/365
 sfit <- survfit(Surv(time, status)~cluster, data=survival)
 ggsurvplot(sfit, risk.table=FALSE, conf.int=FALSE, pval=TRUE, xlab="Time", ggtheme = theme_light(),ncensor.plot= FALSE) #conf.int为TRUE则绘制置信区间，risk.table绘制风险表，
 
-<<<<<<< HEAD
 ################################## gene expression correlation ####################################
-=======
-################################## 基因表达相关性 ####################################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 symbol_ID1 <- read.csv("E:\\LUAD_model\\gene_id\\symbol_ID.csv",head=F,sep=',')
 data <- read.csv("E:\\LUAD_model\\gene_id\\gene_expression.csv",head=F,sep=',')
 
@@ -241,11 +208,7 @@ b <- b+ geom_point()  + geom_smooth(method = "lm",formula=y~x, color = "blue", f
 b <- b + theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())
 b
 
-<<<<<<< HEAD
 ############################### variant num with pseudo time change ###########################
-=======
-############################### 突变数量随伪时间值的变化 ###########################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 library(Hmisc)
 library(ggpubr)
 library(ggbeeswarm)
@@ -264,11 +227,7 @@ b <- b+ geom_point(size=2,alpha=0.7)  + geom_smooth(method = "lm",formula=y~I(x*
 b <- b + theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank(),panel.background = element_blank(),axis.line = element_line(colour = "black"))
 b
 
-<<<<<<< HEAD
 ######################## construct subclone ######################################
-=======
-######################## 构建亚克隆 ######################################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 v = read.table("E:\\LUAD_model\\subClone\\data\\vcf.txt",header=T)
 c = read.table("E:\\LUAD_model\\subClone\\data\\copyNumber.txt",header=T)
 sample = read.table("E:\\LUAD_model\\subClone\\data\\sample_del.txt",header=F)
@@ -300,11 +259,7 @@ for(i in 1:501){
   sc.plot1d(sc,out_filePath2)
   writeClusterSummaryTable(sc,out_filePath3)
 }
-<<<<<<< HEAD
 ######################## subclone num ###############################
-=======
-######################## 统计亚克隆数量 ###############################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 read_clusters <- paste("clusters", ".txt", sep='')
 read_fileName <- matrix(0,501,1)
 outPath <- "E:\\LUAD_model\\subClone"
@@ -324,11 +279,7 @@ count[count==0] <- 1
 count <- read.csv("E:\\LUAD_model\\subClone\\result\\subclone_number.csv")
 p1<-ggplot(data=count, aes(x=disp, y=mpg)) +geom_point(color="#d7191c") +geom_smooth(method="lm",color="#1a9641") +geom_text(aes(x=400, y=32,label=paste("R","=",signif(r,3),seq="")),color="#fdae61")
 
-<<<<<<< HEAD
 ##################### num of subclone with the change of pseudo time ###################################
-=======
-##################### 亚克隆数量随伪时间的变化 ###################################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 library(Hmisc)
 library(ggpubr)
 library(ggbeeswarm)
@@ -344,11 +295,7 @@ g <- g + ggplot2::labs(x = 'Pseudotime order',y='Subclone number',fill='Subclone
 g <- g + theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())
 g
 
-<<<<<<< HEAD
 ##################### relationship between subclone and sample num ################################
-=======
-##################### 亚克隆数量与样本数量的关系 ################################
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 n <- matrix(0,9,2)
 for (i in 1:9) {
   n[i,1] <- i
