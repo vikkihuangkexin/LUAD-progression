@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 LUAD_model.m is for model construction in TCGA cohort.
 validation1_model.m is for model construction in validation cohort 1.
 validation2_model.m is for model construction in validation cohort2. 
