@@ -39,5 +39,5 @@ And the code in `/LUAD_model/code/function_analysis/` is the corresponding downs
 
 ## Data needed for toy model
 
-If you want to use our toy model easily, please modify the corresponding paths in the code to obtain the results in the paper. All data used in the code is available in the `/LUAD_model/data/` folder.
+If you want to use this toy model easily, please modify the corresponding paths in the code to obtain the results in the paper. All data used in the code is available in the `/LUAD_model/data/` folder.
 
