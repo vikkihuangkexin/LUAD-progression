@@ -11,12 +11,11 @@ A cartoon illustrating the reversed graph embedding method. Each point xi in the
 
 
 
-Text below are brief introduction to the project code.
 
 ## Code Structure
 This project is designed to provide a tool for lung cancer trajectory analysis. 
 
-The main toy model code is located at `/LUAD/code/model/construction/LUAD_model.m`, which can be used to perform lung cancer trajectory analysis. The `/LUAD/code/model/construction/mRMR_0.9_compiled` and `/LUAD/code/model/construction/pami2016-pgsl-master` directories contain the compiled code for the feature selection function `mrmr_miq_d` and the original C++ code, respectively. Here we focus on explaining the `LUAD_model` code.
+The main model code is located at `/LUAD/code/model/construction/LUAD_model.m`, which can be used to perform lung cancer trajectory analysis. The `/LUAD/code/model/construction/mRMR_0.9_compiled` and `/LUAD/code/model/construction/pami2016-pgsl-master` directories contain the compiled code for the feature selection function `mrmr_miq_d` and the original C++ code, respectively. Here we focus on explaining the `LUAD_model` code.
 
 Dependencies
 In order to run the code, you will need to have the following dependencies installed or put these code together with the model in the same folder:
@@ -25,7 +24,7 @@ In order to run the code, you will need to have the following dependencies insta
 * mRMR 0.9 compiled code at `/LUAD/code/model/construction/mRMR_0.9_compiled`
 * pami2016-pgsl-master code at `/LUAD/code/model/construction/pami2016-pgsl-master`
 
-The toy model `LUAD_model.m` is well annotated, the model can be separated into these part:
+The model `LUAD_model.m` is well annotated, the model can be separated into these part:
 
 * MRMR method feature selection
 * PCA visualization
@@ -37,7 +36,8 @@ The toy model `LUAD_model.m` is well annotated, the model can be separated into 
 
 And the code in `/LUAD_model/code/function_analysis/` is the corresponding downstream analysis writen in R.
 
-## Data needed for toy model
+## Data needed for model
 
-If you want to use this toy model easily, please modify the corresponding paths in the code to obtain the results in the paper. All data used in the code is available in the `/LUAD_model/data/` folder.
+If you want to use this model directly, please modify the corresponding paths in the code to obtain the results in the paper. 
+All data used in the code is available in the `/LUAD_model/data/` folder.
 
