@@ -9,7 +9,7 @@ Lung adenocarcinoma (LUAD) is a deadly tumor that remains approximately 15% surv
 A cartoon illustrating the reversed graph embedding method. Each point xi in the left panel refers a sample in the input space. yi refers this sample in the latent space. Each yi can map to the point fξ (yi ) by maintaining the graph structure through the reversed graph embedding. ε refers the connections between the points. By using this method, we can infer the underlying structure of high dimensional data.
 
 
-<<<<<<< HEAD
+
 
 Text below are brief introduction to the project code.
 
@@ -40,9 +40,4 @@ And the code in `/LUAD_model/code/function_analysis/` is the corresponding downs
 ## Data needed for toy model
 
 If you want to use our toy model easily, please modify the corresponding paths in the code to obtain the results in the paper. All data used in the code is available in the `/LUAD_model/data/` folder.
-
-
-=======
-# Usage
->>>>>>> 5b969249d9ccc5d24eeb90abd7b72afdc772d8f9
 
